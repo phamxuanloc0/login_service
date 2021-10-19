@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>Log in | Falo Chat App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Responsive Bootstrap 4 Chat App" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+ 
+
+    <!-- Bootstrap Css -->
+  
+    <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <!--  <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" /> -->
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <style type="text/css">
+        .card{
+            border-radius: 30px;
+        }
+
+        .img{
+             display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+    </style>
+
+</head>
+<body style="background: #E8E0E0">
+
+    <div class="account-pages my-5 pt-sm-5">
+        <div class="container">
+            <div class="row">
+                <div class="row">
+                    <div class="col">
+                        <a class="auth-logo mb-5 d-block">
+                            <div class="text-center"><p class=" fs-1" style="color:deeppink  ;font-weight: 1000"> WELLCOME TO FALO CHAT</p>  </div>
+                                <img src="assets/images/login.svg" alt="" height="380" weight="380">                           
+                            </a>                      
+                    </div>
+                    <div class="col">                         
+                        <div class="card">                           
+                        <div class="card-body">
+                        <!-- Start logo-text -->
+                            <div class="text-center">
+                                    <img src="assets/images/logoFalo.svg" alt="" height="110" width="100">
+                                    <p>Easy chat and make friends !</p> 
+                            </div> 
+                        <!-- End logo-text -->
+                            <div class="">
+                                
+                                   <div class="mb-3">
+                                       <label class="form-label">Username</label>
+                                        <div class="input-group mb-3 bg-soft-light rounded-3">
+                                            <span class="input-group-text text-muted" id="basic-addon3">
+                                                <i class="far fa-user"></i>
+                                                </span>
+                                            <input id="email" type="text" class="form-control form-control-lg border-light bg-soft-light" placeholder="Phone number-0582256332-pass:123456" aria-label="Enter Username" aria-describedby="basic-addon3">
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <div class="float-end">
+                                            <a href="auth-recoverpw.html" class="text-muted font-size-13">Forgot password?</a>
+                                        </div>
+                                        <label class="form-label">Password</label>
+                                        <div class="input-group mb-3 bg-soft-light rounded-3">
+                                            <span class="input-group-text text-muted" id="basic-addon4">
+                                                    <i class="fas fa-lock"></i>
+                                                </span>
+                                            <input id="password" type="password" class="form-control form-control-lg border-light bg-soft-light" placeholder="Enter Password" aria-label="Enter Password" aria-describedby="basic-addon4">
+
+                                        </div>
+                                    </div>
+                                
+                                   <div class="d-grid">
+                                        <button onclick="login()" class="btn btn-primary waves-effect waves-light"  style="background:#FA79D3;">Sign in</button>                                        
+                                    </div>                                  
+                                
+                              
+                            </div>
+                        </div>
+                    </div>                        
+                    <div class="text-center">
+                        <p>Don't have an account ? <a href="auth-register.html" class="fw-medium text-primary"> Signup now </a> </p>
+                        <p>©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script> FaloChat. Created by IUH Team</p>
+                    </div>
+                </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end account-pages -->
+   
+    <!-- JAVASCRIPT -->
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAjmzWoJKmndBtQXdo5nu25y16tii2YhPg",
+        authDomain: "testlogin-4f2fc.firebaseapp.com",
+        projectId: "testlogin-4f2fc",
+        storageBucket: "testlogin-4f2fc.appspot.com",
+        messagingSenderId: "825526540113",
+        appId: "1:825526540113:web:b1d4e542e98179f58b6570",
+        measurementId: "G-DMMEVKB52K"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+</body>
+<script>
+    function login() {
+        
+        var phone=document.getElementById("email").value;
+        var email=phone+'@domain.com';
+        var password= document.getElementById("password").value;
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(email,password)
+        .catch(function (error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // ...
+        });
+    }
+  </script>
+</html>
